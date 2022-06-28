@@ -5,7 +5,6 @@ let Article = require('../models/articles');
 
 router.get('/:id/edit', (req, res, next) => {
     let id = req.params.id;
-    console.log(id);
     Comment.findById(id, (err, comment) => {
         if(err) return next(err);
         res.render("updateComments.ejs", {comment});
