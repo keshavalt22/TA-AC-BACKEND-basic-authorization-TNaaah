@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event App</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <header class="container">
+      <h2 class="heading">Welcome to User Login App</h2>
+      <div class="nav">
+        <% if(user) { %>
+          <a href="#" class="brand"><%= user.name %></a>
+          <a href="/articles">
+            <button class="btn-red btn">Article</button>
+          </a>
+          <a href="/users/logout">
+            <button class="btn-red btn">LogOut</button>
+          </a>
+        <% } else { %>
+          <a href="/users/login">
+            <button class="btn-blue btn">Login</button>
+          </a>
+          <a href="/users/register">
+            <button class="btn-green btn">Register</button>
+          </a>
+          <a href="/articles">
+            <button class="btn-red btn">Article</button>
+          </a>
+        <% } %>
+      </div>
+    </header>
+</body>
+</html>

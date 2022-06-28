@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Comment</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="flex">
+            <a href="/articles">
+                <h2 class="brand">Articles</h2>
+            </a>
+            <nav>
+                <a href="/articles">
+                    <button class="btn-green">Back</button>
+                </a>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <h1 class="heading">Update Comment</h1>
+                <form action="/comments/<%= comment.id %>" method="post" class="form">
+                    <textarea name="content" rows="4" cols="40" placeholder="Add Description"><%= comment.content %></textarea>
+                    <input type="text" name="author" placeholder="<%= comment.author %>">
+                    <button type="submit" class="btn-blue">Update Comment</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
