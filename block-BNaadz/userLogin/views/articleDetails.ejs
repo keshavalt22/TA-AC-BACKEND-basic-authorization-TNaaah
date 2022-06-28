@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="flex">
+            <a href="/">
+                <h2 class="brand">Home</h2>
+            </a>
+            <nav>
+                <a href="/articles">
+                    <button class="btn-green">Back</button>
+                </a>
+            </nav>
+        </header>
+        <main>
+            <h2 class="heading">Article</h2>
+            <div class="list">
+                <h2><%= article.title%></h2>
+                <h3><%= article.author.name %></h3>
+                <p><%= article.description %></p>
+                <h4>Likes: <%= article.likes ? article.likes : 0 %></h4>
+                <div class="margin-top">
+                    <a href="/articles/<%= article._id%>/likes">
+                        <button class="btn-green">Like</button>
+                    </a>
+                    <a href="/articles/<%= article._id%>/dislikes">
+                        <button class="btn-red">Dislike</button>
+                    </a>
+                </div>
+                <div class="margin-top">
+                    <a href="/articles/<%= article._id%>/edit">
+                        <button class="btn-blue">Edit</button>
+                    </a>
+                    <a href="/articles/<%= article._id%>/delete">
+                        <button class="btn-red">Delete</button>
+                    </a>
+                </div>
+                <div class="margin-top">
+                    <form action="/articles/<%= article._id %>/comments" method="post">
+                        <textarea name="content" cols="40" rows="6" class="block margin-top" placeholder="Add Comment..."></textarea>
+                        <input type="text" name="author" placeholder="Add Name">
+                        <input class="btn-green" type="submit" value="Add Comment">
+                    </form>
+                </div>
+                <h3>Comments</h3>
+                <hr>
+                <% article.comments.forEach(comment => { %>
+                    <div>
+                        <p class="margin-top"><%= comment.content %></p>
+                        <p><%= comment.author %></p>
+                        <h4>Likes: <%= comment.likes ? comment.likes : 0 %></h4>
+                        <a href="/comments/<%= comment.id %>/edit">
+                            <button class="btn-blue">Edit</button>
+                        </a>
+                        <a href="/comments/<%= comment.id %>/delete">
+                            <button class="btn-red">Delete</button>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="/comments/<%= comment._id%>/likes">
+                            <button class="btn-green">Like</button>
+                        </a>
+                        <a href="/comments/<%= comment._id%>/dislikes">
+                            <button class="btn-red">Dislike</button>
+                        </a>
+                    </div>
+                <% }) %>
+        </main>
+    </div>
+</body>
+</html>

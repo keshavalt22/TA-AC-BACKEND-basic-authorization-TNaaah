@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Article</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="flex">
+            <a href="/">
+                <h2 class="brand">Home</h2>
+            </a>
+            <nav>
+                <a href="/articles">
+                    <button class="btn-green">Article</button>
+                </a>
+            </nav>
+        </header>
+        <main>
+            <h1 class="heading">Add Article</h1>
+            <form action="/articles" method="post" class="form">
+                <input type="text" name="title" placeholder="Enter Title">
+                <textarea name="description" rows="4" placeholder="Enter Description"></textarea>
+                <button type="submit" class="btn-blue">Add Article</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
