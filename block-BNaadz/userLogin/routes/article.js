@@ -9,7 +9,7 @@ var auth = require('../middlewares/auth');
 router.get('/', function(req, res, next) {
     Article.find({}, (err, articles) => {
       if(err) return next(err);
-      res.render('article', {articles: articles});
+      res.render('article', {articles});
     })
 });
 
@@ -19,18 +19,23 @@ router.get("/new", auth.loggedInUser,(req, res,next) => {
 
 router.get('/:id', (req, res, next) => {
     let id = req.params.id;
-    // Article.findById(id, (err, article) => {
-      // if(err) return next(err);
-      // res.render("articleDetails", {article});
-    // })
     Article
       .findById(id)
       .populate('author', 'name email')
+      .populate('comments', 'content author')
       .exec((err, article) => {
         if(err) return next(err);
         res.render("articleDetails", {article});
       })
 });
+
+// router.get('/:id', (req, res, next) => {
+//   let id = req.params.id;
+//   Article.findById(id).populate('comments').exec((err, article) => {
+//     if(err) return next(err);
+//     res.render('articleDetails', {article})
+//   })
+// });
 
 router.use(auth.loggedInUser);
 
@@ -44,21 +49,12 @@ router.post("/", (req, res, next) => {
   });
 });
 
-// router.get('/:id', (req, res, next) => {
-//   let id = req.params.id;
-//   Article.findById(id).populate('comments').exec((err, article) => {
-//     if(err) return next(err);
-//     res.render('articleDetails', {article})
-//   })
-// });
-
 router.get("/:id/edit", (req, res, next) => {
   let id = req.params.id;
   Article
   .findById(id)
-  .populate('author', '_id')
   .exec((err, article) => {
-    if(req.user.id === article.author.id) {
+    if(req.user.id === article.author) {
       Article.findById(id, (err, article) => {
         if(err) return next(err);
         res.render('editarticleForm', {article: article});
@@ -131,6 +127,7 @@ router.get("/:id/dislikes", (req, res, next) => {
 router.post("/:id/comments", (req, res, next) => {
   let id = req.params.id;
   req.body.articleId = id;
+  req.body.author = req.user._id;
   Comment.create(req.body, (err, comment) => {
     if(err) return next(err);
     Article.findByIdAndUpdate(id, {$push: {comments: comment._id}}, (err, updatedArticle) => {

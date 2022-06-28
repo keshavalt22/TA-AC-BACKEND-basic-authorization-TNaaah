@@ -45,7 +45,6 @@
                 <div class="margin-top">
                     <form action="/articles/<%= article._id %>/comments" method="post">
                         <textarea name="content" cols="40" rows="6" class="block margin-top" placeholder="Add Comment..."></textarea>
-                        <input type="text" name="author" placeholder="Add Name">
                         <input class="btn-green" type="submit" value="Add Comment">
                     </form>
                 </div>
@@ -54,7 +53,6 @@
                 <% article.comments.forEach(comment => { %>
                     <div>
                         <p class="margin-top"><%= comment.content %></p>
-                        <p><%= comment.author %></p>
                         <h4>Likes: <%= comment.likes ? comment.likes : 0 %></h4>
                         <a href="/comments/<%= comment.id %>/edit">
                             <button class="btn-blue">Edit</button>
