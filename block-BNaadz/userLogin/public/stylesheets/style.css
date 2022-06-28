@@ -1,0 +1,186 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+	line-height: 1.5;
+}
+
+/*Custome Style*/
+.container {
+  max-width: 1300px;
+  text-align: center;
+}
+
+header{
+	padding: 20px 1rem;
+  background-color: rgb(199,134,199);
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+a {
+  text-decoration: none;
+}
+.nav {
+  text-align: center;
+}
+.nav a {
+	margin-left: 20px;
+}
+
+.btn {
+  padding: 0.3rem 0.8rem;
+  font-size: 1rem;
+}
+
+.success h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: aqua;
+}
+
+.error {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: red;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: black;
+}
+
+.form input {
+  margin: 0 auto;
+  padding: 6px 14px;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.btn-blue {
+  background-color: skyblue;
+}
+
+.btn-green {
+  background-color: green;
+}
+
+.btn-red {
+  background-color: red;
+}
+
+.text-center {
+  text-align: center;
+}
+
+main {
+  padding: 20px 400px;
+}
+footer{
+	padding: 20px;
+    background-color: rgb(144,144,231);
+}
+
+.form{
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 6rem;
+}
+
+.form input {
+	margin: 0 auto;
+	padding: 6px 14px;
+	display: block;
+	margin-bottom: 2rem;
+}
+
+.form textarea {
+	margin: 0 auto;
+	padding: 6px 14px;
+	margin-bottom: 2rem;
+}
+
+.list {
+	max-width: 600px;
+	text-align: left;
+	margin: 0 auto;
+}
+
+.list h2 {
+	color: blue;
+	font-size: 2.2rem;
+	font-weight: 700;
+}
+
+.list h3 {
+	font-size: 2rem;
+	color: skyblue;
+	padding-top: 4rem;
+	padding-bottom: 2rem;
+}
+.list h4 {
+	font-size: 1.4rem;
+	color: rgb(172, 118, 57);
+	padding: 1rem 0;
+}
+
+.list p {
+	font-size: 1.2rem;
+	color: gray;
+}
+
+.margin-top {
+  margin-top: 1rem;
+}
+
+.userName h2{
+  font-size: 1.2rem;
+  color: gray;
+}
