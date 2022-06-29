@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping App</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="flex">
+            <div>
+              <a href="/" class="brand">Home</a>
+            </div>
+            <div>
+                <% if(!userId) {%>
+                    <a href="/users/login">
+                        <button class="btn-blue btn">Login</button>
+                    </a>
+                <% } %>   
+            </div>
+            <div>
+                <% if(userId) {%>
+                    <a href="/users/logout">
+                        <button class="btn-red btn">logout</button>
+                    </a>
+                <% } %>    
+            </div>
+            <div>
+                <a href="/products/new">
+                    <button class="btn-blue">Add Product</button>
+                </a>
+            </div>
+          </header>
+        <main>
+            <h1 class="heading">List Of Products</h2>
+            <div class="list">
+                <% products.forEach(product => { %>
+                    <div class="box">
+                        <h2><%= product.name %></h2>
+                        <h3>Quantity: <%= product.quantity %></h3>
+                        <h3>Price: <%= product.price %></h3>
+                        <h4>Likes: <%= product.likes ? product.likes : 0 %></h4>
+                        <% product.category.forEach(p => { %>
+                            <span><%= p %></span>
+                        <% }) %>
+                        <div class="margin-top">
+                            <a href="/products/<%= product._id%>/likes">
+                                <button class="btn-green">Like</button>
+                            </a>
+                            <a href="/products/<%= product._id%>/dislikes">
+                                <button class="btn-red">Dislike</button>
+                            </a>
+                        </div>  
+                        <% if(userId) {%> 
+                            <div class="margin-top">
+                                <a href="/products/<%= product._id%>/edit">
+                                    <button class="btn-blue">Edit</button>
+                                </a>
+                                <a href="/products/<%= product._id%>/delete">
+                                    <button class="btn-red">Delete</button>
+                                </a>
+                            </div>
+                        <% } %>    
+                    </div>
+                <% }) %>
+            </div>    
+        </main>
+        <footer class="nav">
+            <small>&copy; AltCampus</small>
+        </footer>
+    </div>
+</body>
+</html>

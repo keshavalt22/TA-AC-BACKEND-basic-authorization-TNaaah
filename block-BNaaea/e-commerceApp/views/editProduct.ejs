@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit product</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="flex">
+            <a href="/">
+                <h2 class="brand">Home</h2>
+            </a>
+            <nav>
+                <a href="/products">
+                    <button class="btn-green">Products</button>
+                </a>
+            </nav>
+        </header>
+        <main>
+            <h1 class="heading">Edit Product</h1>
+            <form action="/products/<%= product._id %>" method="post" class="form">
+                <input type="text" name="name" placeholder="Add Product Name" value="<%= product.name %>">
+                <input type="number" name="quantity" placeholder="Number Of Items" value="<%= product.quantity %>">
+                <input type="number" name="price" placeholder="Product's Price" value="<%= product.price %>">
+                <div class="text-center">
+                  <button type="submit" class=" btn btn-blue">Update Product</button>
+                </div>
+            </form>
+        </main>
+        <footer class="nav">
+            <small>&copy; AltCampus</small>
+        </footer>
+    </div>
+</body>
+</html>
