@@ -41,9 +41,14 @@ router.post('/login', (req, res, next) => {
         req.flash('error', 'Invalid Password');
         return res.redirect('/users/login');
       }
-      //presist logged in user information
-      req.session.userId = user.id;
-      res.redirect('/products');
+      if(user.isAdmin) {
+        req.session.adminId = user.id;
+        res.render('adminDashboard');
+      }else {
+        //presist logged in user information
+        req.session.userId = user.id;
+        res.redirect('/podcast');
+      }
     });
   });
 });
