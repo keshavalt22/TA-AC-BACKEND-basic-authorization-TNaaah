@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UserApp</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <header class="flex">
+        <div>
+          <a href="/" class="brand">Home</a>
+        </div>
+        <div>
+            <a href="/">
+                <button class="btn-blue">Back</button>
+            </a>
+        </div>
+      </header>
+      <main>
+        <form action="/users/login" method="post" class="form">
+          <% if(error) { %>
+            <p class="error"><%= error %></p>
+          <% } %>
+          <input type="email" name="email" placeholder="Add Email">
+          <input type="password" name="password" placeholder="Enter Password">
+          <div class="text-center">
+            <button type="submit" class="btn btn-blue">Login</button>
+          </div>
+        </form>
+      </main>
+      <footer class="nav">
+        <small>&copy; AltCampus</small>
+    </footer>
+    </div>
+  </body>
+</html>
